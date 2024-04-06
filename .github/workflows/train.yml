@@ -23,7 +23,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push Docker image to registry
-        run: docker push CICD_Assignment/docker-ml-model
+        run: docker push cicd_assignment/docker-ml-model
 
       - name: Set output for image tag
         id: image-tag
