@@ -23,7 +23,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push Docker image to registry
-        run: docker login -u sneharaos26 -p docker_password docker.io
+        run: docker login -u sneharaos26 -p "suhaas#03" docker.io
              docker push docker-ml-model
 
       - name: Set output for image tag
@@ -51,9 +51,3 @@ jobs:
             --platform linux/amd64,linux/arm64 \
             -t ${{ steps.image-tag.outputs.image_tag_docker-ml-model }} \
             -f Dockerfile .
-
-secrets:
-  - name: docker_password
-    key: ${{ secrets.DOCKER_PASSWORD }}
-    engine: native
-    type: shared
