@@ -24,8 +24,8 @@ jobs:
 
       - name: Push Docker image to registry
         run: |
-          docker tag docker-ml-model cicd_assignment/docker-ml-model
-          docker push cicd_assignment/docker-ml-model
+          docker tag docker-ml-model:v1.0.0 sneharaos26/iisc_assignments:v1.0.0
+          docker push sneharaos26/iisc_assignments:v1.0.0
 
       - name: Set output for image tag
         id: image-tag
