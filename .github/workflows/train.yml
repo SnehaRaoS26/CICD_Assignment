@@ -55,7 +55,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Pull Docker image from registry
-        run: docker pull docker pull sneharaos26/iisc_assignments:docker-ml-model
+        run: docker pull sneharaos26/iisc_assignments:docker-ml-model
 
       - name: Run Docker container and test
         run: |
