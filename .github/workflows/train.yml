@@ -1,4 +1,4 @@
-name: Train
+name: train
 
 on:
   pull_request:
@@ -27,37 +27,14 @@ jobs:
           docker tag docker-ml-model sneharaos26/iisc_assignments:docker-ml-model
           docker push sneharaos26/iisc_assignments:docker-ml-model
 
-#      - name: Set output for image tag
-#        id: image-tag
-#        run: echo "::set-output name=image_tag_docker-ml-model::docker-ml-model"
-#        shell: bash
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-
-#      - name: Cache Docker layers
-#        uses: actions/cache@v2
-#        with:
-#          path: /tmp/.buildx-cache
-#          key: ${{ runner.os }}-buildx-${{ github.sha }}
-#          restore-keys: |
-#            ${{ runner.os }}-buildx-
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: sneharaos26/iisc_assignments
-
-#      - name: Build and push Docker image with Buildx
-#        run: |
-#          docker buildx build \
-#            --cache-from=type=local,src=/tmp/.buildx-cache \
-#            --cache-to=type=local,dest=/tmp/.buildx-cache \
-#            --output type=image,push=true \
-#            --platform linux/amd64,linux/arm64 \
-#            -t ${{ steps.image-tag.outputs.image_tag_docker-ml-model }} \
-#            -f Dockerfile .
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671

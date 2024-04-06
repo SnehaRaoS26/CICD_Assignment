@@ -1,4 +1,4 @@
-name: Docker Run and Test
+name: test
 
 on:
   pull_request:
@@ -9,14 +9,14 @@ jobs:
   run-and-test:
     runs-on: ubuntu-latest
     needs: build-and-push
-    if: ${{ needs.build-and-push.result == 'success' }}
+    if: ${{ needs.train.result == 'success' }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Pull Docker image from registry
-        run: docker pull docker-ml-model
+        run: docker pull sneharaos26/iisc_assignments:docker-ml-model
 
       - name: Run Docker container and test
         run: |
