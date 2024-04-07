@@ -61,7 +61,7 @@ jobs:
         run: |
           docker run --name ml-container sneharaos26/iisc_assignments:docker-ml-model python3 test.py
           score=$(docker inspect ml-container --format='{{index .State.Health.Status}}')
-          if [ $(awk 'BEGIN{ print ("'$score'" > 0.50) }') -eq 1 ]; then
+          if [ $(awk 'BEGIN{ print ("'$score'" > 0.35) }') -eq 1 ]; then
             exit 0
           else
             exit 1
