@@ -12,3 +12,4 @@ model = LogisticRegression(max_iter=100).fit(X, y)
 
 with open("/cicd_assignment/model.pkl", 'wb') as f:
     pickle.dump(model, f)
+
