@@ -61,7 +61,7 @@ jobs:
         run: |
           docker run --name ml-container sneharaos26/iisc_assignments:docker-ml-model python3 test.py
           score=$(docker inspect ml-container)
-          if [[ $(echo "$score2 > 0.35" |bc -l) -eq 1 ]]; then
+          if [[ $(echo "$score > 0.35" |bc -l) -eq 1 ]]; then
             echo "Score greater than 0.35. Success!"
             exit 0
           else
