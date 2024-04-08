@@ -61,6 +61,8 @@ jobs:
         run: |
           docker run --name ml-container sneharaos26/iisc_assignments:docker-ml-model python3 test.py
           score=$(docker inspect ml-container)
-          if [[ `echo "$score 0.35" | awk '{print ($1 < $2)}'` == 1 ]]; then 
-            echo "Insufficient Accuracy" && exit 1 
+          thresh=0.35
+          if [[ `awk '{print ($score < $thresh)}'` == 1 ]]; then 
+            echo "Insufficient Accuracy"
+            exit 1 
           fi
